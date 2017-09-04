@@ -11,12 +11,12 @@ Enjoy!
 
 Notice that I use `map` with assignment instead of `map!`.  This is because `map!` will not replace the elements in the array if it's called on a sub-array.  For example:
 
-hello = ["h","e","l","l","o"]
+`baaa = ["b","a","a","a"]`
 
-hello[1..3].map! {|char| char += "r"}
+`baaa[1..2].map! {|char| char += "n"}`
 
-`hello` will not be altered, since `map!` is being called on a sub-array of `hello`.  However:
+While this will return the altered sub-array, `baaa` itself will not be altered since `map!` isn't actually being called on it.  However:
 
-hello[1..3] = hello[1..3].map {|char| char += "r"}
+`baaa[1..2] = baaa[1..2].map {|char| char += "n"}`
 
-will reassign `hello` to ["h","er","lr","lr","o"].
+will actually reassign `baaa` to `["b","an","an","a"]`.
